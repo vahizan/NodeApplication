@@ -3,6 +3,7 @@ const mongoose  = require('mongoose');
 const config = require('./config/dev');
 const Employee = require('./models/employee');
 const FakeDb = require('./fake-db');
+const employeeRoutes = require('./routes/employees');
 
 mongoose.connect(config.DB_URI , { useNewUrlParser : true }).then(() => {
 
@@ -13,9 +14,7 @@ mongoose.connect(config.DB_URI , { useNewUrlParser : true }).then(() => {
 
 const app = express();
 
-app.get('/users', function(req, res){
-    res.json({ "success" : true });
-});
+app.use("/api/v1/employees", employeeRoutes);
 
 const PORT = process.env.PORT || 3001;
 
