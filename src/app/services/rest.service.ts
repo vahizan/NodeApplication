@@ -9,7 +9,7 @@ export class RestService {
 
   constructor(private http : HttpClient) { }
 
-  url : string  = "http://localhost:3001/api/v1/employees";
+  url : string  = "/api/v1/employees";
 
   getEmployees()
   {
