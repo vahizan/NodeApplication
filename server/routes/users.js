@@ -3,9 +3,11 @@ const router = express.Router();
 
 router.post('/auth', function(req, res){
 
+
 });
 
-router.post('/registration', function(req, res){
+router.post('/register', function(req, res){
+
 
 });
 
