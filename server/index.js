@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose  = require('mongoose');
+const bodyParser = require('body-parser');
 const config = require('./config/dev');
 const Employee = require('./models/employee');
 const FakeDb = require('./fake-db');
@@ -15,6 +16,8 @@ mongoose.connect(config.DB_URI , { useNewUrlParser : true }).then(() => {
 });
 
 const app = express();
+
+app.use(bodyParser.json());
 
 app.use("/api/v1/employees", employeeRoutes);
 app.use("/api/v1/users", userRoutes);
